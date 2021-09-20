@@ -25,4 +25,4 @@ curl \
   -H "Accept: application/vnd.github.v3+json" \
   -H "Authorization: token $GITHUB_TOKEN" \
   $REQ_URL \
-  -d '{ "group_id": $3 }'
+  -d "{ \"group_id\": $3 }"
