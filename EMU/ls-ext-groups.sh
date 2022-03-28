@@ -15,7 +15,8 @@ then
 fi
 
 ORG=thedave42-Volcano
-REQ_URL=https://api.github.com/organizations/$1/external-groups
+#REQ_URL=https://api.github.com/organizations/$1/external-groups
+REQ_URL=https://api.github.com/orgs/$1/external-groups
 
 echo $REQ_URL
 
