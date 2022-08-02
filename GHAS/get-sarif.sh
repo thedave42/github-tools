@@ -1,26 +1,22 @@
 #!/bin/sh
-#
-# Single group: api :get, “/organizations/#{@org.id}/external-group/#{@external_group1.id}”
 # 
-# Usage: get-ext-group.sh <org-id> <group-id>
+# Usage: get-sarif.sh <org> <repo> <analysis_id>
 #
 # Note: GITHUB_TOKEN can be set in .env file
 #
-#  Example org id: 88687631
-#  Example group id: 182
 
 if [ -f '.env' ]
 then 
   source .env
 fi
 
-ORG=thedave42-Volcano
-REQ_URL=https://api.github.com/organizations/$1/external-group/$2
+REQ_URL=https://api.github.com/repos/$1/$2/code-scanning/analyses/$3
 
 echo $REQ_URL
 
 curl \
   -X GET \
-  -H "Accept: application/vnd.github.v3+json" \
+  -H "Accept: application/sarif+json" \
   -H "Authorization: token $GITHUB_TOKEN" \
   $REQ_URL
+  

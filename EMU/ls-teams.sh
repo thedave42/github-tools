@@ -19,6 +19,6 @@ REQ_URL=https://api.github.com/orgs/$1/teams
 echo $REQ_URL
 curl \
   -X GET \
-  -H "Accept: application/vnd.github.v3+json" \
+  -H "Accept: application/vnd.github+json" \
   -H "Authorization: token $GITHUB_TOKEN" \
   $REQ_URL

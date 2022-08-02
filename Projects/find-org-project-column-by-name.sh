@@ -1,6 +1,8 @@
 #!/bin/sh
 # 
-# Usage: ls-analysis.sh <org> <repo>
+# Usage: find-org-project-column-by-name.sh <project_id> <name>
+#   project_id - The ID of the Project (required) 
+#   name - The title of the column
 #
 # Note: GITHUB_TOKEN can be set in .env file
 #
@@ -10,7 +12,7 @@ then
   source .env
 fi
 
-REQ_URL=https://api.github.com/repos/$1/$2/code-scanning/analyses
+REQ_URL=https://api.github.com/projects/$1/columns?per_page=100
 
 echo $REQ_URL
 

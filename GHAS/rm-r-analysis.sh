@@ -20,7 +20,7 @@ echo TOOL: $TOOL
 
 ANALYSIS_URL=$(curl \
   -X GET \
-  -H "Accept: application/vnd.github.v3+json" \
+  -H "Accept: application/vnd.github+json" \
   -H "Authorization: token $GITHUB_TOKEN" \
   $REQ_URL \
   | jq --arg REF "$REF" --arg TOOL "$TOOL" -r '.[] | select((.ref == $REF) and (.deletable == true) and (.tool.name == $TOOL)) | {url}' \
@@ -28,7 +28,7 @@ ANALYSIS_URL=$(curl \
 
 curl \
   -X DELETE \
-  -H "Accept: application/vnd.github.v3+json" \
+  -H "Accept: application/vnd.github+json" \
   -H "Authorization: token $GITHUB_TOKEN" \
   $ANALYSIS_URL \
   

@@ -1,6 +1,7 @@
 #!/bin/sh
 # 
-# Usage: rm-analysis.sh <org> <repo> <analysis_id>
+# Usage: ls-org-projects.sh <org>
+#   org - The name of the Organization (required) 
 #
 # Note: GITHUB_TOKEN can be set in .env file
 #
@@ -10,13 +11,13 @@ then
   source .env
 fi
 
-
-REQ_URL=https://api.github.com/repos/$1/$2/code-scanning/analyses/$3
+REQ_URL=https://api.github.com/orgs/$1/projects?per_page=100
 
 echo $REQ_URL
 
 curl \
-  -X DELETE \
+  -X GET \
   -H "Accept: application/vnd.github+json" \
   -H "Authorization: token $GITHUB_TOKEN" \
-  $REQ_URL
+  $REQ_URL 
+  
