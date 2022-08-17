@@ -1,5 +1,4 @@
 #!/bin/sh
-#!/bin/sh
 #
 # https://docs.github.com/en/rest/reference/orgs#list-organizations
 # 
@@ -14,9 +13,10 @@ then
   source .env
 fi
 
-REQ_URL=https://api.github.com/organizations
+REQ_URL=$API_URL/organizations
 
 echo $REQ_URL
+
 curl \
   -X GET \
   -H "Accept: application/vnd.github+json" \
