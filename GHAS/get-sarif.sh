@@ -1,5 +1,7 @@
 #!/bin/sh
-# 
+#
+# Returns the entire SARIF json to stdout 
+#
 # Usage: get-sarif.sh <org> <repo> <analysis_id>
 #
 # Note: GITHUB_TOKEN can be set in .env file
