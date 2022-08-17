@@ -12,8 +12,6 @@ fi
 
 REQ_URL=$API_URL/repos/$1/$2/code-scanning/analyses/$3
 
-echo $REQ_URL
-
 curl \
   -X GET \
   -H "Accept: application/sarif+json" \
