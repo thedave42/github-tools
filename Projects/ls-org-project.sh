@@ -11,7 +11,7 @@ then
   source .env
 fi
 
-REQ_URL=https://api.github.com/projects/$1
+REQ_URL=$API_URL/projects/$1
 
 echo $REQ_URL
 

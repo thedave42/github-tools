@@ -10,7 +10,7 @@ then
   source .env
 fi
 
-REQ_URL=https://api.github.com/repos/$1/$2/code-scanning/analyses
+REQ_URL=$API_URL/repos/$1/$2/code-scanning/analyses
 TOOL=$3
 
 echo $REQ_URL

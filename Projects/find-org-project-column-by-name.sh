@@ -12,7 +12,7 @@ then
   source .env
 fi
 
-REQ_URL=https://api.github.com/projects/$1/columns?per_page=100
+REQ_URL=$API_URL/projects/$1/columns?per_page=100
 
 echo $REQ_URL
 

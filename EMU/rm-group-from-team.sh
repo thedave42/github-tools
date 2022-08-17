@@ -1,20 +1,20 @@
 #!/bin/sh
 #
-# Delete group: api :delete, “/organizations/#{@linked_org.id}/team/#{@linked_team.id}/external-groups”
-# 
-# Usage: rm-group-from-team.sh <org-id> <team-id>
+# https://docs.github.com/en/enterprise-cloud@latest/rest/teams/external-groups#remove-the-connection-between-an-external-group-and-a-team
+#
+# Usage: rm-group-from-team.sh <org-name> <team-slug>
 #
 # Note: GITHUB_TOKEN can be set in .env file
 #
-#  Example org id: 88687631
-#  Example team id: 5132882
+#  Example org name: Octocats
+#  Example team slug: all-employees
 
 if [ -f '.env' ]
 then 
   source .env
 fi
 
-REQ_URL=https://api.github.com/organizations/$1/team/$2
+REQ_URL=$API_URL/orgs/$1/teams/$2/external-groups
 
 echo $REQ_URL
 

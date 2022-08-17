@@ -1,13 +1,14 @@
 #!/bin/sh
 #
-# Add/Update group to a team: api :patch, “/organizations/#{@org.id}/team/#{@team.id}/external-groups”, {}, input: { group_id: @external_group_ent2.id }.to_json
+# Add/Update group to a team:
+# https://docs.github.com/en/enterprise-cloud@latest/rest/teams/external-groups#update-the-connection-between-an-external-group-and-a-team
 # 
-# Usage: add-group-to-team.sh <org-id> <team-id> <group-id>
+# Usage: add-group-to-team.sh <org> <team-slug> <group-id>
 #
 # Note: GITHUB_TOKEN can be set in .env file
 #
-#  Example org id: 88687631
-#  Example team id: 5132882
+#  Example org: Octocats
+#  Example team slug: all-employees
 #  Example group id: 182
 
 if [ -f '.env' ]
@@ -16,7 +17,7 @@ then
 fi
 
 ORG=thedave42-Volcano
-REQ_URL=https://api.github.com/organizations/$1/team/$2/external-groups
+REQ_URL=$API_URL/orgs/$1/teams/$2/external-groups
 
 echo $REQ_URL
 

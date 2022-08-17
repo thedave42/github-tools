@@ -6,16 +6,16 @@
 #
 # Note: GITHUB_TOKEN can be set in .env file
 #
-#  Example org: thedave42-Volcano
+#  Example org: Octocats
 #  Example team: All-Employees
-#  Example user: thedave42
+#  Example user: thedave42_github
 
 if [ -f '.env' ]
 then 
   source .env
 fi
 
-REQ_URL=https://api.github.com/orgs/$1/teams/$2/memberships/$3
+REQ_URL=$API_URL/orgs/$1/teams/$2/memberships/$3
 
 echo $REQ_URL
 

@@ -1,12 +1,11 @@
 #!/bin/sh
 #
-# All groups (paging is supported): api :get, “/organizations/#{@org.id}/external-groups”, [per_page: 30, page: 1...]
+# https://docs.github.com/en/enterprise-cloud@latest/rest/teams/external-groups#list-external-groups-in-an-organization
 # 
-# Usage: ls-ext-groups.sh <org-id>
+# Usage: ls-ext-groups.sh <org-name>
 #
 # Note: GITHUB_TOKEN can be set in .env file
 #
-#  Example org id: 88687631
 
 
 if [ -f '.env' ]
@@ -14,9 +13,7 @@ then
   source .env
 fi
 
-ORG=thedave42-Volcano
-#REQ_URL=https://api.github.com/organizations/$1/external-groups
-REQ_URL=https://api.github.com/orgs/$1/external-groups
+REQ_URL=$API_URL/orgs/$1/external-groups
 
 echo $REQ_URL
 

@@ -1,12 +1,12 @@
 #!/bin/sh
 #
-# Single group: api :get, “/organizations/#{@org.id}/external-group/#{@external_group1.id}”
+# https://docs.github.com/en/enterprise-cloud@latest/rest/teams/external-groups#get-an-external-group
 # 
-# Usage: get-ext-group.sh <org-id> <group-id>
+# Usage: get-ext-group.sh <org-name> <group-id>
 #
 # Note: GITHUB_TOKEN can be set in .env file
 #
-#  Example org id: 88687631
+#  Example org name: Octocats
 #  Example group id: 182
 
 if [ -f '.env' ]
@@ -14,8 +14,7 @@ then
   source .env
 fi
 
-ORG=thedave42-Volcano
-REQ_URL=https://api.github.com/organizations/$1/external-group/$2
+REQ_URL=$API_URL/orgs/$1/external-group/$2
 
 echo $REQ_URL
 

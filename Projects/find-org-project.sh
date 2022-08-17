@@ -20,7 +20,7 @@ else
   PAGE=$3
 fi
 
-REQ_URL=https://api.github.com/orgs/$1/projects?per_page=100\&page=$PAGE
+REQ_URL=$API_URL/orgs/$1/projects?per_page=100\&page=$PAGE
 HTML_URL=https://github.com/orgs/$1/projects/$2
 
 echo html_url: $HTML_URL

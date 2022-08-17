@@ -11,7 +11,7 @@ then
   source .env
 fi
 
-REQ_URL=https://api.github.com/projects/columns/$1/cards
+REQ_URL=$API_URL/projects/columns/$1/cards
 
 echo $REQ_URL
 
