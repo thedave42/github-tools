@@ -16,7 +16,6 @@ then
   source .env
 fi
 
-ORG=thedave42-Volcano
 REQ_URL=$API_URL/orgs/$1/teams/$2/external-groups
 
 echo $REQ_URL
