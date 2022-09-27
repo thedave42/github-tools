@@ -22,6 +22,6 @@ jobs:
 
       - name: Show payload
         env:
-          GITHUB_EVENT: ${{ github.event }}
+          GITHUB_EVENT: ${{ toJSON(github.event) }}
         run: |
           echo "::notice::GITHUB_EVENT: $GITHUB_EVENT"
