@@ -8,8 +8,6 @@ name: Display Event Payload
 # repository's root directory.
 #
 on:
-  push:
-    branches: [main]
   pull_request:
 
 jobs:
