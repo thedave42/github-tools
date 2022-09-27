@@ -1,0 +1,27 @@
+name: Display Event Payload
+
+#
+# Scan the code using CodeQL whenever new commits are pushed to the main branch
+# or whenever any activity happens inside a pull request targeting the main
+# branch. This workflow will only be executed if at least one modified file
+# resides outside the "docs" subdirectory and is not directly under the
+# repository's root directory.
+#
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  display-event-payload:
+    name: Display Event Payload
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Show payload
+        env:
+          GITHUB_EVENT: ${{ github.event }}
+        run: |
+          echo "::notice::GITHUB_EVENT: $GITHUB_EVENT"

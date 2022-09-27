@@ -26,4 +26,4 @@ curl \
   -H "Accept: application/vnd.github+json" \
   -H "Authorization: token $GITHUB_TOKEN" \
   $REQ_URL \
-  -d "{\"name\":\"$2\"}"
+  -d "{\"name\":\"$2\",\"maintainers\":[]}"
