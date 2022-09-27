@@ -23,5 +23,9 @@ jobs:
       - name: Show payload
         env:
           GITHUB_EVENT: ${{ toJSON(github.event) }}
+          GITHUB_EVENT_NAME: ${{ github.event_name }}
+          GITHUB_EVENT_PATH: ${{ github.event_path }}
         run: |
+          echo "::notice::GITHUB_EVENT_NAME: $GITHUB_EVENT_NAME"
+          echo "::notice::GITHUB_EVENT_PATH: $GITHUB_EVENT_PATH"
           echo "::notice::GITHUB_EVENT: $GITHUB_EVENT"
