@@ -12,7 +12,6 @@ then
   source .env
 fi
 
-# if $1 is not a file, exit
 if [ ! -f $1 ]
 then
     echo "Usage: run-query.sh <query-file> [variable-file]"
@@ -27,12 +26,10 @@ QUERY=$(echo $QUERY | sed 's/"/\\"/g')
 echo "Query: $QUERY"
 REQ_BODY="{\"query\": \"$QUERY\"}"
 
-#if $2 is defined, use it as variable file
 if [ -n "$2" ]
 then
     echo "Using GraphQL Variable file: $2"
     VARS=$(cat $2)
-    # find the text "variables {" and replace it with "variables: { "
     VARS=$(echo $VARS | sed 's/variables {/\"variables\": {/')
     echo "Variables: $VARS"
     REQ_BODY="{\"query\": \"$QUERY\", $VARS}"
