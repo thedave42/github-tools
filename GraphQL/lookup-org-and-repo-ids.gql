@@ -1,0 +1,8 @@
+query {
+  organization(login: "thedave42-org") {
+    id
+    repository(name: "javascript-ghas-demo") {
+      id
+    }
+  }
+}
